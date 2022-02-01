@@ -1,7 +1,21 @@
+import { useNavigate } from "react-router-dom";
 
 export const LoginScreen = () => {
-    return <div>
+    const navigate = useNavigate();
+    const handleChange = () => {
+        navigate('/',{
+            replace: true
+        });
+    }
+    return (<div>
         <h1>Login Screen</h1>
-    </div>;
+        <hr />
+        <button
+            className="btn btn-primary"
+            onClick={handleChange}
+        >
+            Login
+        </button>
+    </div>);
   };
   

@@ -1,9 +1,12 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 export const Navbar = () => {
+    const navigate = useNavigate();
     const handleLogout = (e) => {
-        console.log('logour');
+        navigate('/login',{
+            replace: true
+        });
     };
     return (
         <nav className="px-5 navbar navbar-expand-sm navbar-dark bg-dark">
@@ -30,6 +33,12 @@ export const Navbar = () => {
                         to="/dc"
                     >
                         DC
+                    </NavLink>
+                    <NavLink
+                        className={({isActive}) => "nav-item nav-link "+ (isActive ? "active" : '')}
+                        to="/hero"
+                        >
+                        Hero
                     </NavLink>
                 </div>
             </div>
