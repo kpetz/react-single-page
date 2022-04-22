@@ -12,13 +12,13 @@ export const SearchScreen = () => {
 
     const { q = '' } = queryString.parse(location.search);
 
+    
     const [formValues, handleInputChange] = useForm({
         searchText: q,
     });
 
     const { searchText } = formValues;
     const heroesFiltered = useMemo(() => getHeroesByName(q), [q]);
-
 
     const handleSearch = (e) => {
         e.preventDefault();

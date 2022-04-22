@@ -1,9 +1,21 @@
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../auth/authContext";
+import { types } from "../../types/types";
 
 export const LoginScreen = () => {
     const navigate = useNavigate();
+    const { dispatch } = useContext(AuthContext);
     const handleChange = () => {
-        navigate('/',{
+        const action = {
+            type: types.login,
+            payload: {
+                name: 'Kevin'
+            }
+        }
+        dispatch(action);
+        const lastPath = localStorage.getItem('lastPath') || '/marvel';
+        navigate(lastPath, {
             replace: true
         });
     }
@@ -17,5 +29,4 @@ export const LoginScreen = () => {
             Login
         </button>
     </div>);
-  };
-  
+};
